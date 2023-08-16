@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvas');
 const canvasContext = canvas.getContext('2d');
 
-const pacmanFrames = document.getElementById('animation');
+const pacmanFrames = document.getElementById('animations');
 const ghostFrames = document.getElementById('ghosts');
 
 let createRect = (x, y, width, height, color) => {
@@ -16,6 +16,11 @@ let wallOffset = (oneBlockSize - wallSpaceWidth) / 2;
 let wallColor = '#342DCA';
 let background = '#000000';
 let wallInnerColor = '#000000';
+
+const DIRECTION_RIGHT = 4;
+const DIRECTION_UP = 3;
+const DIRECTION_LEFT = 2;
+const DIRECTION_BOTTOM = 1;
 
 let map = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -35,7 +40,7 @@ let map = [
     [1, 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1],
     [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
     [1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1],
-    [1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1],
+    [1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1],
     [1, 1, 2, 2, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 2, 1, 1],
     [1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1],
     [1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1],
@@ -50,12 +55,14 @@ let gameLoop = () => {
 
 let update = () => {
     //not yet
+    pacman.moveProcess();
 };
 
 let draw = () => {
     createRect(0, 0, canvas.width, canvas.height, background);
     //not yet
     drawWalls();
+    pacman.draw();
 };
 
 let gameInterval = setInterval(gameLoop, 1000 / fps);
@@ -87,3 +94,14 @@ let drawWalls = () => {
         };
     };
 };
+
+let createNewPacman = () => {
+    pacman = new Pacman(oneBlockSize, oneBlockSize, oneBlockSize, oneBlockSize, oneBlockSize / 5);
+};
+
+createNewPacman();
+gameLoop();
+
+window.addEventListener('keydown', (event) => {
+
+});
