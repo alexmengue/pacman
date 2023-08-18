@@ -25,7 +25,7 @@ class Pacman {
     };
 
     eat() {
-
+        //not yet
     };
 
     moveBackwards() {
