@@ -10,6 +10,7 @@ let createRect = (x, y, width, height, color) => {
 };
 
 let fps = 30;
+let score = 0;
 let oneBlockSize = 20;
 let wallSpaceWidth = oneBlockSize / 1.5;
 let wallOffset = (oneBlockSize - wallSpaceWidth) / 2;
@@ -17,6 +18,7 @@ let wallColor = '#342DCA';
 let background = '#000000';
 let wallInnerColor = '#000000';
 let foodColor = '#FEB897';
+
 
 const DIRECTION_RIGHT = 4;
 const DIRECTION_UP = 3;
@@ -34,7 +36,7 @@ let map = [
     [1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 1],
     [0, 0, 0, 0, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 0, 0, 0, 0],
     [1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 2, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1],
-    [2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2],
+    [1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1],
     [1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 2, 2, 1, 2, 1, 2, 1, 1, 1, 1, 1],
     [0, 0, 0, 0, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 0, 0, 0, 0],
     [0, 0, 0, 0, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 0, 0, 0, 0],
@@ -55,8 +57,8 @@ let gameLoop = () => {
 };
 
 let update = () => {
-    //not yet
     pacman.moveProcess();
+    pacman.eat();
 };
 
 let drawFoods = () => {
@@ -71,7 +73,6 @@ let drawFoods = () => {
 
 let draw = () => {
     createRect(0, 0, canvas.width, canvas.height, background);
-    //not yet
     drawWalls();
     drawFoods();
     pacman.draw();
