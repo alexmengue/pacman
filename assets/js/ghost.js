@@ -25,7 +25,7 @@ class Ghost {
 
     moveProcess() {
         if (this.isInRangeOfPacman()) {
-            target = pacman;
+            this.target = pacman;
         } else {
             this.target = randomTargetsForGhosts[this.randomTargetIndex];
         }
@@ -111,6 +111,13 @@ class Ghost {
             parseInt(this.target.y / oneBlockSize),
         );
 
+        if (typeof this.direction === 'undefined') {
+            this.direction = tempDirection;
+            return;
+        }
+
+
+
         this.moveForwards();
 
         if (this.checkCollision()) {
@@ -144,8 +151,14 @@ class Ghost {
             } else {
                 mp[poped.y][poped.x] = 1;
                 let neighborList = this.addNeighbors(poped, mp);
+
+                for (let i = 0; i < neighborList.length; i++) {
+                    queue.push(neighborList[i]);
+                }
             }
         }
+
+        return DIRECTION_UP;
     };
 
     addNeighbors(poped, mp) {
@@ -173,7 +186,7 @@ class Ghost {
 
         if (poped.y + 1 >= 0 && poped.y + 1 < numOfRows && mp[poped.y + 1][poped.x] !== 1) {
             let tempMoves = poped.moves.slice();
-            tempMoves.push(DIRECTION_UP);
+            tempMoves.push(DIRECTION_BOTTOM);
             queue.push({x: poped.x, y: poped.y + 1, moves: tempMoves});
         }
 

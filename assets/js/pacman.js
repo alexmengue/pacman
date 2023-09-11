@@ -86,7 +86,7 @@ class Pacman {
     };
 
     checkGhostCollision() {
-
+        //not yet
     };
 
     changeDirectionIfPossible() {
