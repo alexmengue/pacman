@@ -204,7 +204,7 @@ class Ghost {
         canvasContext.restore();
 
         canvasContext.beginPath();
-        canvasContext.strokeStyle = 'red';
+        canvasContext.strokeStyle = 'transparent';
         canvasContext.arc(
             this.x + oneBlockSize / 2,
             this.y + oneBlockSize / 2,
