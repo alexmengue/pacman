@@ -115,7 +115,7 @@ let gameOver = () => {
 };
 
 let drawGameOver = () => {
-    canvasContext.font = '50px Emulogic';
+    canvasContext.font = '30px Emulogic';
     canvasContext.fillStyle = 'white';
     canvasContext.fillText('Game Over!', 100, 200);
 };
@@ -136,8 +136,8 @@ let drawLives = () => {
             pacmanFrames,
             2 * oneBlockSize,
             0,
-            oneBlockSize, oneBlockSize, 280 + i * oneBlockSize,
-            oneBlockSize * map.length + 15,
+            oneBlockSize, oneBlockSize, 350 + i * oneBlockSize,
+            oneBlockSize * map.length + 12,
             oneBlockSize,
             oneBlockSize,
         );
