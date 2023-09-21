@@ -129,15 +129,15 @@ let drawWin = () => {
 let drawLives = () => {
     canvasContext.font = '20px Emulogic';
     canvasContext.fillStyle = 'white';
-    canvasContext.fillText('Lives: ', 220, oneBlockSize * (map.length + 1) + 10);
+    canvasContext.fillText('Lives: ', 220, oneBlockSize * (map.length + 1) + 16);
 
     for (let i = 0; i < lives; i++) {
         canvasContext.drawImage(
             pacmanFrames,
             2 * oneBlockSize,
             0,
-            oneBlockSize, oneBlockSize, 350 + i * oneBlockSize,
-            oneBlockSize * map.length + 12,
+            oneBlockSize, oneBlockSize, 360 + i * oneBlockSize,
+            oneBlockSize * map.length + 16,
             oneBlockSize,
             oneBlockSize,
         );
@@ -157,7 +157,7 @@ let drawFoods = () => {
 let drawScore = () => {
     canvasContext.font = '20px Emulogic';
     canvasContext.fillStyle = '#FFFFFF';
-    canvasContext.fillText('Score: ' + score, 0, oneBlockSize * (map.length + 1) + 10);
+    canvasContext.fillText('Score: ' + score, 0, oneBlockSize * (map.length + 1) + 16);
 };
 
 let drawGhosts = () => {
