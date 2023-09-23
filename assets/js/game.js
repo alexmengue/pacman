@@ -115,15 +115,15 @@ let gameOver = () => {
 };
 
 let drawGameOver = () => {
-    canvasContext.font = '30px Emulogic';
+    canvasContext.font = '40px Emulogic';
     canvasContext.fillStyle = 'white';
-    canvasContext.fillText('Game Over!', 60, 230);
+    canvasContext.fillText('Game Over!', 10, 230);
 };
 
 let drawWin = () => {
-    canvasContext.font = '50px Emulogic';
+    canvasContext.font = '40px Emulogic';
     canvasContext.fillStyle = 'white';
-    canvasContext.fillText('You Win!', 100, 200);
+    canvasContext.fillText('You Win!', 50, 230);
 };
 
 let drawLives = () => {
