@@ -98,6 +98,10 @@ let update = () => {
         drawScore();
         drawWin();
         clearInterval(gameInterval);
+
+        setTimeout(() => {
+            location.reload();
+        }, 3000)
     }
 };
 
@@ -114,6 +118,10 @@ let restartGame = () => {
 let gameOver = () => {
     drawGameOver();
     clearInterval(gameInterval);
+
+    setTimeout(() => {
+        location.reload();
+    }, 3000)
 };
 
 let drawGameOver = () => {
