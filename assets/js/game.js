@@ -111,7 +111,9 @@ let restartGame = () => {
     lives--;
 
     if (lives === 0) {
-        gameOver();
+        setTimeout(() => {
+            gameOver();
+        }, 50)
     }
 };
 
@@ -142,15 +144,15 @@ let drawLives = () => {
     canvasContext.fillText('Lives: ', 220, oneBlockSize * (map.length + 1) + 16);
 
     for (let i = 0; i < lives; i++) {
-        canvasContext.drawImage(
-            pacmanFrames,
-            2 * oneBlockSize,
-            0,
-            oneBlockSize, oneBlockSize, 360 + i * oneBlockSize,
-            oneBlockSize * map.length + 16,
-            oneBlockSize,
-            oneBlockSize,
-        );
+            canvasContext.drawImage(
+                pacmanFrames,
+                2 * oneBlockSize,
+                0,
+                oneBlockSize, oneBlockSize, 360 + i * oneBlockSize,
+                oneBlockSize * map.length + 16,
+                oneBlockSize,
+                oneBlockSize,
+            );
     }
 };
 
